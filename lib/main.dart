@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'screens/home_screen.dart'; // hanya ini
+import 'screens/splash_screen.dart';
+import 'screens/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,12 +12,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'IRAMA',
       debugShowCheckedModeBanner: false,
-      title: 'Irama',
       theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF6A5AE0)),
+        useMaterial3: true,
       ),
-      home: HomeScreen(), // 👉 tanpa const
+      initialRoute: '/',
+      routes: {
+        '/': (_) => const SplashScreen(),
+        '/home': (_) => const HomeScreen(),
+      },
     );
   }
 }
