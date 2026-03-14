@@ -7,7 +7,6 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF4F6FA),
-
       appBar: AppBar(
         backgroundColor: const Color(0xFF6A5AE0),
         elevation: 0,
@@ -22,14 +21,13 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
 
-            /// SEARCH BAR
+            // SEARCH BAR 
             Container(
               height: 52,
               padding: const EdgeInsets.symmetric(horizontal: 18),
@@ -61,30 +59,22 @@ class HomeScreen extends StatelessWidget {
 
             const SizedBox(height: 30),
 
-            /// HERO BANNER
+            // HERO BANNER
             Container(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 24,
-                vertical: 30,
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 30),
               decoration: BoxDecoration(
                 gradient: const LinearGradient(
-                  colors: [
-                    Color(0xFF6A5AE0),
-                    Color(0xFF8E7CFF),
-                  ],
+                  colors: [Color(0xFF6A5AE0), Color(0xFF8E7CFF)],
                 ),
                 borderRadius: BorderRadius.circular(28),
               ),
               child: Row(
                 children: [
-
                   Expanded(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: const [
-
                         Text(
                           "Pembelajaran Musik\nInklusif",
                           style: TextStyle(
@@ -94,9 +84,7 @@ class HomeScreen extends StatelessWidget {
                             height: 1.2,
                           ),
                         ),
-
                         SizedBox(height: 14),
-
                         Text(
                           "Teknologi Embedded 3D Model\n& Metode Kodály Hand Sign",
                           style: TextStyle(
@@ -108,12 +96,7 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-
-                  const Icon(
-                    Icons.music_note,
-                    color: Colors.white,
-                    size: 95,
-                  ),
+                  const Icon(Icons.music_note, color: Colors.white, size: 95),
                 ],
               ),
             ),
@@ -122,12 +105,8 @@ class HomeScreen extends StatelessWidget {
 
             const Text(
               "Fitur Pembelajaran",
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-              ),
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
-
             const SizedBox(height: 18),
 
             GridView.count(
@@ -137,57 +116,57 @@ class HomeScreen extends StatelessWidget {
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               children: [
-
                 _featureCard(
-                  Icons.threed_rotation,
-                  "Visualisasi Nada 3D",
-                  "Representasi nada musik melalui model 3D interaktif.",
-                  Colors.orange,
+                  context,
+                  icon: Icons.threed_rotation,
+                  title: "Visualisasi Nada 3D",
+                  desc: "Representasi nada musik melalui model 3D interaktif.",
+                  color: Colors.orange,
                 ),
-
                 _featureCard(
-                  Icons.pan_tool_alt,
-                  "Kodály Hand Sign",
-                  "Pembelajaran nada dengan gerakan tangan.",
-                  Colors.green,
+                  context,
+                  icon: Icons.pan_tool_alt,
+                  title: "Kodály Hand Sign",
+                  desc: "Pembelajaran nada dengan gerakan tangan.",
+                  color: Colors.green,
                 ),
-
                 _featureCard(
-                  Icons.graphic_eq,
-                  "Latihan Ritme",
-                  "Latihan pola ritme menggunakan visual.",
-                  Colors.blue,
+                  context,
+                  icon: Icons.graphic_eq,
+                  title: "Latihan Ritme",
+                  desc: "Latihan pola ritme menggunakan visual.",
+                  color: Colors.blue,
                 ),
-
                 _featureCard(
-                  Icons.menu_book,
-                  "Modul Musik",
-                  "Materi dasar teori musik inklusif.",
-                  Colors.teal,
+                  context,
+                  icon: Icons.menu_book,
+                  title: "Modul Musik",
+                  desc: "Materi dasar teori musik inklusif.",
+                  color: Colors.teal,
                 ),
-
                 _featureCard(
-                  Icons.quiz,
-                  "Evaluasi",
-                  "Quiz untuk mengukur pemahaman siswa.",
-                  Colors.deepPurple,
+                  context,
+                  icon: Icons.quiz,
+                  title: "Evaluasi",
+                  desc: "Quiz untuk mengukur pemahaman siswa.",
+                  color: Colors.deepPurple,
                 ),
-
                 _featureCard(
-                  Icons.info_outline,
-                  "Tentang IRAMA",
-                  "Informasi dan tujuan aplikasi.",
-                  Colors.redAccent,
+                  context,
+                  icon: Icons.info_outline,
+                  title: "Tentang IRAMA",
+                  desc: "Informasi dan tujuan aplikasi.",
+                  color: Colors.redAccent,
                 ),
               ],
             ),
 
             const SizedBox(height: 40),
 
-            /// FOOTER
-            Center(
+            // FOOTER
+            const Center(
               child: Column(
-                children: const [
+                children: [
                   Divider(indent: 40, endIndent: 40),
                   SizedBox(height: 10),
                   Text(
@@ -197,11 +176,8 @@ class HomeScreen extends StatelessWidget {
                   SizedBox(height: 5),
                   Text(
                     "Dibuat Oleh Kelompok 7 PBM",
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.grey,
-                    ),
-                  )
+                    style: TextStyle(fontSize: 12, color: Colors.grey),
+                  ),
                 ],
               ),
             )
@@ -212,59 +188,60 @@ class HomeScreen extends StatelessWidget {
   }
 
   Widget _featureCard(
-      IconData icon,
-      String title,
-      String desc,
-      Color color,
-      ) {
-    return Container(
-      padding: const EdgeInsets.all(18),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(24),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.05),
-            blurRadius: 12,
-            offset: const Offset(0,5),
-          )
-        ],
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-
-          CircleAvatar(
-            radius: 26,
-            backgroundColor: color.withOpacity(0.15),
-            child: Icon(icon, color: color, size: 30),
-          ),
-
-          const SizedBox(height: 12),
-
-          Text(
-            title,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 15,
+    BuildContext context, {
+    required IconData icon,
+    required String title,
+    required String desc,
+    required Color color,
+  }) {
+    return InkWell(
+      borderRadius: BorderRadius.circular(24),
+      onTap: () {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Buka fitur: $title')),
+        );
+      },
+      child: Container(
+        padding: const EdgeInsets.all(18),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(24),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.05),
+              blurRadius: 12,
+              offset: const Offset(0,5),
+            )
+          ],
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CircleAvatar(
+              radius: 26,
+              backgroundColor: color.withOpacity(0.15),
+              child: Icon(icon, color: color, size: 30),
             ),
-          ),
-
-          const SizedBox(height: 6),
-
-          Text(
-            desc,
-            textAlign: TextAlign.center,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-            style: const TextStyle(
-              fontSize: 12,
-              color: Colors.black54,
-              height: 1.4,
+            const SizedBox(height: 12),
+            Text(
+              title,
+              textAlign: TextAlign.center,
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
             ),
-          )
-        ],
+            const SizedBox(height: 6),
+            Text(
+              desc,
+              textAlign: TextAlign.center,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(
+                fontSize: 12,
+                color: Colors.black54,
+                height: 1.4,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

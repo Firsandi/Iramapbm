@@ -1,16 +1,35 @@
 import 'package:flutter/material.dart';
 import 'home_screen.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 2), () {
+      if (!mounted) return;
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (_) => const HomeScreen()),
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFF6366F1), Color.fromARGB(255, 196, 196, 196)],
+            colors: [Color(0xFF6366F1), Color(0xFFC4C4C4)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -19,18 +38,16 @@ class SplashScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
+              SizedBox(
                 width: 200,
                 height: 300,
-                decoration: BoxDecoration(
-                  // Menghapus shape: BoxShape.circle jika ingin gambar kotak muncul utuh
-                ),
                 child: Image.asset(
                   'assets/images/Logo.png',
                   fit: BoxFit.contain,
                 ),
               ),
-              const SizedBox(height: 10), // Memberi sedikit jarak antara gambar dan teks
+              const SizedBox(height: 10),
+              const CircularProgressIndicator(color: Colors.white),
             ],
           ),
         ),
